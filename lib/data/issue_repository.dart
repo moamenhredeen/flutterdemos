@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:demos/data/issue.dart';
 import 'package:demos/data/issue_repository_contract.dart';
 import 'package:demos/data/issue_status.dart';
@@ -34,5 +36,21 @@ class IssueRepository implements IssueRepositoryContract {
   Future<List<Issue>> getIssues() async {
     await Future.delayed(Duration(seconds: 1));
     return _issues.toList();
+  }
+
+  @override
+  Future<List<Issue>> filter({String? name, Set<IssueStatus>? status}) async {
+    await Future.delayed(Duration(seconds: 1));
+    if ((name == null || name.isEmpty) && status == null) return [];
+    return _issues.where((e) {
+      var take = false;
+      if (name != null && name.isNotEmpty) {
+        take = e.name.toLowerCase().contains(name.toLowerCase());
+      }
+      if (status != null && status.isNotEmpty) {
+        take = status.contains(e.status);
+      }
+      return take;
+    }).toList();
   }
 }

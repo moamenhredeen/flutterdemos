@@ -4,6 +4,7 @@ import 'package:demos/ui/inbox/inbox_view.dart';
 import 'package:demos/ui/inbox/inbox_view_model.dart';
 import 'package:demos/ui/preferences/preferences_view.dart';
 import 'package:demos/ui/search/search_view.dart';
+import 'package:demos/ui/search/search_view_model.dart';
 import 'package:demos/ui/widgets/app_shell.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,6 +13,10 @@ final IssueRepositoryContract _issueRepository = IssueRepository();
 
 // viewModels
 final InboxViewModel _inboxViewModel = InboxViewModel(
+  issueRepository: _issueRepository,
+);
+
+final SearchViewModel _searchViewModel = SearchViewModel(
   issueRepository: _issueRepository,
 );
 
@@ -28,7 +33,11 @@ final router = GoRouter(
           builder:
               (context, state) => InboxView(inboxViewModel: _inboxViewModel),
         ),
-        GoRoute(path: "/search", builder: (context, state) => SearchView()),
+        GoRoute(
+          path: "/search",
+          builder:
+              (context, state) => SearchView(searchViewModel: _searchViewModel),
+        ),
         GoRoute(
           path: "/settings",
           builder: (context, state) => PreferencesView(),
