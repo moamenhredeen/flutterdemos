@@ -20,3 +20,9 @@ than most approaches like Riverpod, BloC, etc.
 
 Until i find a good way to share data in a reactive way between mvvm without code duplication and a lot of boilerplate, i think
 riverpod will be a safer pet.
+
+## Riverpod
+
+we can already see, that even for such a small app riverpod does save a lot of effort. it is not as bad as i initially 
+thought. we have to think of provider as use-cases (or BloC from BloC perspective). there is no mapping between the screens/views
+and the providers, and we should not try to make one. Riverpod is reactive layer between the data layer and the UI layer.
