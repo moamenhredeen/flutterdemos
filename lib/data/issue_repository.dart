@@ -1,10 +1,13 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:demos/data/issue.dart';
 import 'package:demos/data/issue_repository_contract.dart';
 import 'package:demos/data/issue_status.dart';
 
 class IssueRepository implements IssueRepositoryContract {
+  final _random = Random();
+  
   final List<Issue> _issues = [
     Issue(
       id: 1,
@@ -34,23 +37,27 @@ class IssueRepository implements IssueRepositoryContract {
 
   @override
   Future<List<Issue>> getIssues() async {
-    await Future.delayed(Duration(seconds: 1));
+    await _randomDelay();
     return _issues.toList();
   }
 
   @override
   Future<List<Issue>> filter({String? name, Set<IssueStatus>? status}) async {
-    await Future.delayed(Duration(seconds: 1));
+    await _randomDelay();
     if ((name == null || name.isEmpty) && status == null) return [];
     return _issues.where((e) {
       var take = false;
       if (name != null && name.isNotEmpty) {
-        take = e.name.toLowerCase().contains(name.toLowerCase());
+        take = e.name.toLowerCase().contains(name.trim().toLowerCase());
       }
       if (status != null && status.isNotEmpty) {
         take = status.contains(e.status);
       }
       return take;
     }).toList();
+  }
+
+  Future<void> _randomDelay() async {
+    await Future.delayed(Duration(milliseconds: _random.nextInt(1000)));
   }
 }
