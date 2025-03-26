@@ -6,7 +6,7 @@ class PreferencesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Preferences"), backgroundColor: Colors.amber),
+      appBar: AppBar(title: Text("Preferences")),
       body: Center(child: Text("Preferences")),
     );
   }

@@ -17,7 +17,7 @@ class SearchView extends StatelessWidget {
       listenable: _searchViewModel,
       builder: (context, _) {
         return Scaffold(
-          appBar: AppBar(title: Text("Search"), backgroundColor: Colors.amber),
+          appBar: AppBar(title: Text("Search")),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 10,

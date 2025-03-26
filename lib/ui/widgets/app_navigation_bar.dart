@@ -15,7 +15,6 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
   Widget build(BuildContext context) {
     return NavigationBar(
       selectedIndex: _index,
-      indicatorColor: Colors.amberAccent,
       onDestinationSelected: (value) {
         setState(() {
           _index = value;
@@ -29,7 +28,7 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
         context.go(url);
       },
       destinations: [
-        NavigationDestination(icon: Icon(Icons.inbox), label: "Inbox"),
+        NavigationDestination(icon: Badge(child: Icon(Icons.inbox), label: Text("10"),), label: "Inbox"),
         NavigationDestination(icon: Icon(Icons.search), label: "Search"),
         NavigationDestination(icon: Icon(Icons.settings), label: "Settings"),
       ],

@@ -17,7 +17,7 @@ class InboxView extends StatelessWidget {
       listenable: _inboxViewModel,
       builder:
           (context, _) => Scaffold(
-            appBar: AppBar(title: Text("Inbox"), backgroundColor: Colors.amber),
+            appBar: AppBar(title: Text("Inbox")),
             body: RefreshIndicator(
               onRefresh: () async {
                 return await _inboxViewModel.getIssues();
@@ -41,7 +41,6 @@ class InboxView extends StatelessWidget {
                     context: context,
                     builder: (context) => NewIssue());
               },
-              backgroundColor: Colors.amberAccent,
               child: Icon(Icons.add),
             ),
           ),
