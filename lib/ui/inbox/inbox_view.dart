@@ -1,6 +1,7 @@
 import 'package:demos/data/issue_status.dart';
 import 'package:demos/ui/inbox/inbox_view_model.dart';
 import 'package:demos/ui/widgets/issue_tile.dart';
+import 'package:demos/ui/widgets/new_issue.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +34,15 @@ class InboxView extends StatelessWidget {
                   );
                 },
               ),
+            ),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                showBottomSheet(
+                    context: context,
+                    builder: (context) => NewIssue());
+              },
+              backgroundColor: Colors.amberAccent,
+              child: Icon(Icons.add),
             ),
           ),
     );

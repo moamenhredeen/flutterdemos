@@ -20,12 +20,14 @@ class SearchView extends StatelessWidget {
           appBar: AppBar(title: Text("Search"), backgroundColor: Colors.amber),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 10,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                padding: const EdgeInsets.all(25),
                 child: TextField(
                   controller: _searchViewModel.searchController,
                   decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(0),
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -38,10 +40,7 @@ class SearchView extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 5,
-                  horizontal: 15,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Wrap(
                   spacing: 10,
                   children: [
