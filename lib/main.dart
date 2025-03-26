@@ -1,7 +1,8 @@
+import 'package:demos/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const App());
+  runApp(App());
 }
 
 class App extends StatelessWidget {
@@ -9,9 +10,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Demos")),
-      body: Center(child: Text("Demos")),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: router,
     );
   }
 }
