@@ -1,5 +1,5 @@
 import 'package:demos/data/issue.dart';
 
-abstract interface class IssueRepository {
+abstract interface class IssueRepositoryContract {
   Future<List<Issue>> getIssues();
 }
